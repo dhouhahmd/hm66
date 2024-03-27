@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DHOUHA STORE</title>
+
+<!-- Ajout des fichiers CSS de Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<style>
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #9b2170;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #634c9c;
+    padding: 10px 20px;
+}
+
+nav ul li a:hover {
+    background-color: #6496ba;
+}
+
+section {
+    padding: 20px;
+}
+
+/* Styles spécifiques aux sections */
+#hommes h2,
+#femmes h2,
+#enfants h2 {
+    color: #b31a54;
+}
+
+#homme-items,
+#femme-items,
+#enfant-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item {
+    width: 200px;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #ccc;
+    text-align: center;
+}
+
+.item img {
+    max-width: 100%;
+    height: auto;
+}
+</style>
+
+</head>
+<body>
+<header>
+    <h1 class="display-4">DHOUHA STORE</h1>
+</header>
+
+<nav>
+    <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="#hommes">Hommes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#femmes">Femmes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#enfants">Enfants</a></li>
+    </ul>
+</nav>
+
+<section id="hommes">
+    <h2>Vêtements pour hommes</h2>
+    <div id="homme-items" class="items">
+        <!-- Les articles pour hommes seront ajoutés dynamiquement ici -->
+    </div>
+</section>
+
+<section id="femmes">
+    <h2>Vêtements pour femmes</h2>
+    <div id="femme-items" class="items">
+        <!-- Les articles pour femmes seront ajoutés dynamiquement ici -->
+    </div>
+</section>
+
+<section id="enfants">
+    <h2>Vêtements pour enfants</h2>
+    <div id="enfant-items" class="items">
+        <!-- Les articles pour enfants seront ajoutés dynamiquement ici -->
+    </div>
+</section>
+
+<section id="panier">
+    <h2>Panier</h2>
+    <div id="panier-content">
+        <!-- Le contenu du panier sera affiché ici -->
+    </div>
+</section>
+<footer class="text-center text-white mt-5 bg-dark">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-4">
+          <div class="social-icons text-start">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <p class="text-center">&copy; 2024 DHOUHA STORE</p>
+        </div>
+        <div class="col-md-4">
+          <p class="text-end"><i class="fas fa-shopping-cart"></i></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+
+<!-- Ajout des fichiers JavaScript de Bootstrap et de jQuery (requis pour Bootstrap) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// Exemple de données pour les articles
+const articlesHommes = [
+    { nom: "costume",prix: 25, image: "costume1" },
+    { nom: "costume",prix: 25, image: "costume2" },
+    { nom: "costume",prix: 25, image: "costume3" },
+    { nom: "costume",prix: 25, image: "costume4" },
+    { nom: "costume ",prix: 25, image: "costume5" },
+    { nom: "survettement ",prix: 25, image: "survett1" },
+    { nom: "Chemise pour hommes",prix: 25, image: "imagepull" },
+    { nom: "Chemise pour hommes", prix: 25, image: "chemise1" },
+    { nom: "Chemise pour hommes", prix: 25, image: "chemise2" },
+
+    { nom: "Pantalon pour hommes", prix: 45, image: "pantalon1" },
+    { nom: "Pantalon pour hommes", prix: 50, image: "pantalon2" },
+    { nom: "Pantalon pour hommes", prix: 35, image: "pantalon3" },
+    { nom: "Veste pour hommes", prix: 60, image: "veste1" },
+    { nom: "Veste pour hommes", prix: 60, image: "veste2" },
+    { nom: "Veste pour hommes", prix: 60, image: "veste3"},
+];
+
+const articlesFemmes = [
+    { nom: "Robe mariée", prix: 1000, image: "robemariage5" },
+    { nom: "Robe mariée ", prix: 1500, image: "robemariage1" },
+    { nom: "Robe mariée", prix: 2000, image: "robemariage2" },
+    { nom: "Robe mariée", prix: 1600, image: "robemariage3" },
+    { nom: "Robe mariée", prix: 1800, image: "robemariage4" },
+    { nom: "Robe pour femmes", prix: 35, image: "robe1" },
+    { nom: "Robe pour femmes", prix: 45, image: "robe2" },
+    { nom: "Robe pour femmes", prix: 60, image: "robe3" },   
+    { nom: "Jupe pour femmes", prix: 65, image: "jupe1" },
+    { nom: "Jupe pour femmes", prix: 45, image: "jupe2 "},
+    { nom: "Jupe pour femmes", prix: 35, image: "jupe3" },
+    { nom: "Blouse pour femmes", prix: 50, image: "blouse1" },
+    { nom: "Blouse pour femmes", prix: 55, image: "blouse2" },
+    { nom: "Blouse pour femmes", prix: 75, image: "blouse3" }
+];
+
+const articlesEnfants = [
+    { nom: "T-shirt pour enfants", prix: 15, image: "tshirt1" },
+    { nom: "T-shirt pour enfants", prix: 17, image: "tshirt2" },
+    { nom: "T-shirt pour enfants", prix: 20, image: "tshirt4" },
+    { nom: "T-shirt pour enfants", prix: 30, image: "tshirt5"},
+    { nom: "T-shirt pour enfants", prix: 32, image: "tshirt6" },
+    { nom: "Short pour enfants", prix: 33, image: "short1"},
+    { nom: "Short pour enfants", prix: 24, image: "short2" },
+    { nom: "Short pour enfants", prix: 12, image: "short3" },
+    { nom: "Short pour enfants", prix: 15, image: "short4" },
+    { nom: "Short pour enfants", prix: 20, image: "short5" },
+    { nom: "Pull pour enfants", prix: 25, image: "pull11" },
+    { nom: "Pull pour enfants", prix: 30, image: "pull2" },
+    { nom: "Pull pour enfants", prix: 35, image: "pull3" },
+    { nom: "Pull pour enfants", prix: 30, image: "pull4" },
+    { nom: "Pull pour enfants", prix: 18, image: "pull5"}
+];
+
+// Déclaration de la variable panier
+let panier = [];
+
+// Fonction pour afficher les articles dans une section donnée
+function afficherArticles(sectionId, articles) {
+    const section = document.getElementById(sectionId);
+    const itemsDiv = section.querySelector(".items");
+
+    articles.forEach((article, index) => {
+        const itemDiv = document.createElement("div");
+        itemDiv.classList.add("item");
+        itemDiv.innerHTML = `
+            <img src="${article.image}" alt="${article.nom}">
+            <h3>${article.nom}</h3>
+            <p>Prix: ${article.prix} $</p>
+            <button class="btn btn-primary" onclick="ajouterAuPanier('${sectionId}', ${index})">Ajouter au panier</button>
+        `;
+        itemsDiv.appendChild(itemDiv);
+    });
+}
+
+
+// Fonction pour ajouter un article au panier
+function ajouterAuPanier(sectionId, index) {
+    let article;
+    switch (sectionId) {
+        case "hommes":
+            article = articlesHommes[index];
+            break;
+        case "femmes":
+            article = articlesFemmes[index];
+            break;
+        case "enfants":
+            article = articlesEnfants[index];
+            break;
+        default:
+            return;
+    }
+
+    panier.push(article);
+    afficherPanier();
+    calculerTotal();
+}
+
+// Fonction pour afficher le contenu du panier
+function afficherPanier() {
+    const panierDiv = document.getElementById("panier-content");
+    panierDiv.innerHTML = "";
+    
+    if (panier.length === 0) {
+        panierDiv.innerHTML += "<p>Le panier est vide.</p>";
+    } else {
+        panier.forEach((article) => {
+            panierDiv.innerHTML += `<p>${article.nom} - ${article.prix} $</p>`;
+        });
+    }
+}
+
+// Fonction pour calculer le total du panier
+function calculerTotal() {
+    let total = 0;
+    panier.forEach((article) => {
+        total += article.prix;
+    });
+    console.log("Total du panier:", total);
+    return total;
+}
+
+// Appel de la fonction pour afficher les articles
+afficherArticles("hommes", articlesHommes);
+afficherArticles("femmes", articlesFemmes);
+afficherArticles("enfants", articlesEnfants);
+</script>
+
+</body>
+</html>
